@@ -1,13 +1,13 @@
 import CryptoJS from "crypto-js";
 const crypto = CryptoJS;
 
-export const encrypt = (data) => {
-  return crypto.AES.encrypt(JSON.stringify(data), process.env.CRYPTO_KEY).toString();
+export const encrypt = (data, num) => {
+  return crypto.AES.encrypt(JSON.stringify(data), process.env.CRYPTO_KEY + num).toString();
 };
 
-export const decrypt = (text) => {
+export const decrypt = (text, num) => {
   try {
-    const bytes = crypto.AES.decrypt(text, process.env.CRYPTO_KEY);
+    const bytes = crypto.AES.decrypt(text, process.env.CRYPTO_KEY + num);
     return JSON.parse(bytes.toString(crypto.enc.Utf8));
   } catch (err) {
     console.log(err);

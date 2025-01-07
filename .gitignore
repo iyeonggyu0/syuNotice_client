@@ -38,6 +38,6 @@ client/.env
 .env
 build
 
-/2024101224_syunotice_client.pem
-2024101224_syunotice_client.pem
-*/2024101224_syunotice_client.pem
+/2024101224_syuNoticeClient.pem
+2024101224_syuNoticeClient.pem
+*/2024101224_syuNoticeClient.pem
