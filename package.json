@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "syuNotice_client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@craco/craco": "^7.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0"
