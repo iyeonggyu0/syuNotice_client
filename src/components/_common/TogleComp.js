@@ -21,7 +21,7 @@ const ToggleCompStyl = styled.div`
 const ToggleComp = ({ children, toggle }) => {
   const isPc = useMedia().isPc;
   return (
-    <ToggleCompStyl isPc={isPc} toggle={`${toggle}`} className="flexHeightCenter">
+    <ToggleCompStyl isPc={`${isPc}`} toggle={`${toggle}`} className="flexHeightCenter">
       <span>{children}</span>
     </ToggleCompStyl>
   );

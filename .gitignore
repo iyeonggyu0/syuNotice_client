@@ -37,6 +37,7 @@ yarn-error.log*
 client/.env
 .env
 build
+*/.env
 
 /2024101224_syuNoticeClient.pem
 2024101224_syuNoticeClient.pem

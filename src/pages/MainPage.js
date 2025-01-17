@@ -33,6 +33,7 @@ const MainPageMainPc = styled.section`
     border-bottom: 1px solid #474a50;
     font-weight: 500;
     transition: all 0.3s;
+    user-select: none;
   }
 
   & > p:last-child:hover {
@@ -48,7 +49,7 @@ const MainPage = () => {
 
   return (
     <MainLayOut>
-      <MainPageMainPc isPc={isPc} bgImage={bgImage} className="flexWidthCenter">
+      <MainPageMainPc isPc={`${isPc}`} bgImage={bgImage} className="flexWidthCenter">
         <div className="title">{/* 로고 */}</div>
         <p onClick={() => nav("/apply/0")} className="emoji">
           내 번호로 알림받기

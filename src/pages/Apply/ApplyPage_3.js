@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import MainLayOut from "../../layout/index.js";
-import { useEffect } from "react";
-import InputComp from "../../components/_common/InputComp.js";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ToggleComp from "../../components/_common/TogleComp.js";
+import NextComp from "../../components/_common/NextComp.js";
 
 const ApplyPageMainStyle = styled.section`
   width: 100vw;
@@ -16,6 +18,7 @@ const ApplyPageMainStyle = styled.section`
   & > div > p:first-child {
     font-weight: 400;
     font-size: 1.8rem;
+    user-select: none;
     text-align: center;
     line-height: 150%;
     margin-bottom: 1vh;
@@ -23,6 +26,7 @@ const ApplyPageMainStyle = styled.section`
 
   & > div > p:nth-child(2) {
     font-size: 0.9rem;
+    user-select: none;
     color: gray;
     margin-bottom: 3vh;
   }
@@ -37,25 +41,55 @@ const ApplyPageMainStyle = styled.section`
 `;
 
 const ApplyPage3 = () => {
-  const class_1 = localStorage.getItem("1-class_") || "false";
-  const record_1 = localStorage.getItem("1-record") || "false";
-  const registration_1 = localStorage.getItem("1-registration") || "false";
-  const chapel_1 = localStorage.getItem("1-chapel") || "false";
+  const nav = useNavigate();
+  // 전체
+  const [receive, setReceive] = useState(localStorage.getItem("3-receive") === "false" ? false : true);
 
-  const newbie_2 = localStorage.getItem("2-newbie") || "false";
-  const transfer_2 = localStorage.getItem("2-transfer") || "false";
-  const student_2 = localStorage.getItem("2-student") || "false";
+  const nextButton = (e) => {
+    e.preventDefault();
+
+    if (!receive) {
+      if (window.confirm("행사공지 알림을 받지 않습니다.")) {
+        return nav("/apply/4");
+      } else {
+        return;
+      }
+    } else {
+      localStorage.setItem("3-receive", receive);
+      return nav("/apply/4");
+    }
+  };
 
   return (
     <MainLayOut>
       <ApplyPageMainStyle className="flexCenter">
         <div className="flexCenter">
           <p>
-            <span style={{ fontWeight: 700 }}>마지막</span>단계예요!
+            <span style={{ fontWeight: 700 }}>행사공지</span>의
+            <br />
+            알림을 설정합니다!
           </p>
-          <p>이미 등록된 경우 기존 설정을 수정해요</p>
+          <p>알림을 받으시겠습니까?</p>
           <div>
-            <InputComp>학번</InputComp>
+            <div
+              onClick={() => {
+                const var_ = !receive; // `class_`의 반대 값을 계산
+                setReceive(var_); // 상태 업데이트
+                localStorage.setItem("3-receive", var_); // `localStorage` 업데이트
+              }}>
+              <ToggleComp toggle={`${receive}`}>예</ToggleComp>
+            </div>
+            <div
+              onClick={() => {
+                const var_ = !receive; // `class_`의 반대 값을 계산
+                setReceive(var_); // 상태 업데이트
+                localStorage.setItem("3-receive", var_); // `localStorage` 업데이트
+              }}>
+              <ToggleComp toggle={`${!receive}`}>아니요</ToggleComp>
+            </div>
+          </div>
+          <div onClick={nextButton}>
+            <NextComp>다음</NextComp>
           </div>
         </div>
       </ApplyPageMainStyle>

@@ -17,6 +17,7 @@ const ApplyPageMainStyle = styled.section`
 
   & > div > p:first-child {
     font-weight: 400;
+    user-select: none;
     font-size: 1.8rem;
     text-align: center;
     line-height: 150%;
@@ -25,6 +26,7 @@ const ApplyPageMainStyle = styled.section`
 
   & > div > p:nth-child(2) {
     font-size: 0.9rem;
+    user-select: none;
     color: gray;
     margin-bottom: 3vh;
   }
@@ -59,7 +61,7 @@ const ApplyPage1 = () => {
       return localStorage.setItem("1-all", true);
     }
 
-    if (class_ === false && record === false && registration === false && chapel === false) {
+    if (class_ === false || record === false || registration === false || chapel === false) {
       localStorage.setItem("1-all", false);
       return setAll(false);
     }
@@ -74,6 +76,8 @@ const ApplyPage1 = () => {
       } else {
         return;
       }
+    } else {
+      return nav("/apply/2");
     }
   };
 

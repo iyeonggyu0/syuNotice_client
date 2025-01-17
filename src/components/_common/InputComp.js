@@ -3,6 +3,7 @@ import { useMedia } from "../../hooks/useMedia";
 
 const InputCompStyled = styled.div`
   color: #474a50;
+  position: relative;
 
   & > input {
     width: 70vw;
@@ -23,17 +24,36 @@ const InputCompStyled = styled.div`
   }
 
   & > p {
-    padding-bottom: 12px;
+    font-size: 0.8rem;
+    padding-bottom: 6px;
     padding-left: 6px;
+  }
+
+  & > span {
+    position: absolute;
+    font-size: 0.8rem;
+    padding: 10px;
+    right: 15px;
+    top: 29px;
+    cursor: pointer;
   }
 `;
 
-const InputComp = ({ children, changeFunc }) => {
+// clickSituation : 클릭 가능 여부
+const InputComp = ({ children, changeFunc, clickSituation = true, certification = null, example = "", password = null }) => {
   const isPc = useMedia().isPc;
   return (
     <InputCompStyled isPc={`${isPc}`}>
       <p>{children}</p>
-      <input />
+      <input
+        disabled={!clickSituation}
+        placeholder={example}
+        type={password || "text"}
+        onChange={(e) => {
+          changeFunc(e.target.value);
+        }}
+      />
+      {certification && <span onClick={certification}>발송</span>}
     </InputCompStyled>
   );
 };

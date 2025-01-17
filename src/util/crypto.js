@@ -1,13 +1,13 @@
 import CryptoJS from "crypto-js";
 const crypto = CryptoJS;
 
-export const encrypt = (data, num) => {
-  return crypto.AES.encrypt(JSON.stringify(data), process.env.CRYPTO_KEY + num).toString();
+export const encrypt = (data, studentId) => {
+  return crypto.AES.encrypt(JSON.stringify(data), process.env.REACT_APP_CRYPTO_KEY + studentId).toString();
 };
 
-export const decrypt = (text, num) => {
+export const decrypt = (text, studentId) => {
   try {
-    const bytes = crypto.AES.decrypt(text, process.env.CRYPTO_KEY + num);
+    const bytes = crypto.AES.decrypt(text, process.env.REACT_APP_CRYPTO_KEY + studentId);
     return JSON.parse(bytes.toString(crypto.enc.Utf8));
   } catch (err) {
     console.log(err);
