@@ -40,6 +40,10 @@ const ApplyPageMainStyle = styled.section`
   & > div > div:last-child {
     margin-top: 3vh;
   }
+
+  & .flexHeightCenter {
+    user-select: none;
+  }
 `;
 
 const ApplyPage5 = () => {
@@ -206,6 +210,12 @@ const ApplyPage5 = () => {
       });
   };
 
+  const [agreement, setAgreement] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setAgreement((prevAgreement) => !prevAgreement);
+  };
+
   return (
     <MainLayOut>
       <ApplyPageMainStyle className="flexCenter">
@@ -221,6 +231,19 @@ const ApplyPage5 = () => {
               핸드폰 번호
             </InputComp>
             <InputComp changeFunc={studentPwFunc}>인증번호</InputComp>
+            <div className="flexHeightCenter">
+              <label>
+                <input type="checkbox" checked={agreement} onChange={handleCheckboxChange} style={{ cursor: "pointer" }} />
+                <span style={{ marginLeft: "10px", cursor: "pointer", fontSize: "0.9rem", color: "#222222" }}>약관에 동의합니다.</span>
+                <a
+                  href="/agreement"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: "6px", cursor: "pointer", fontSize: "0.8rem", color: "darkgray" }}>
+                  (약관 보기)
+                </a>
+              </label>
+            </div>
           </div>
           <div onClick={registrationFunc}>
             <NextComp>완료</NextComp>

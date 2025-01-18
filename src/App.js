@@ -14,6 +14,7 @@ import Error404 from "./pages/ErrorPage.js";
 import ApplyPage6 from "./pages/Apply/ApplyPage_6.js";
 import AdminLoginPage from "./pages/Admin/login.js";
 import KaKaoPage from "./pages/KaKao.js";
+import AgreementPage from "./pages/AgreementPage.js";
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
 
           {/* 문의 */}
           <Route path="/kakao" element={<KaKaoPage />} />
+
+          {/* 약관관 */}
+          <Route path="/agreement" element={<AgreementPage />} />
 
           {/* 어드민 */}
           <Route path="/admin" element={<AdminPage />} />

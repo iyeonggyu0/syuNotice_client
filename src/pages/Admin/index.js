@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import MainLayOut from "../../layout";
 import Error404 from "../ErrorPage.js";
-import { decrypt } from "../../util/crypto";
+import { decrypt, encrypt } from "../../util/crypto";
 import { AdminPageMainStyle } from "./style.js";
 import axios from "axios";
+import InputComp from "../../components/_common/InputComp.js";
 
 const AdminPage = () => {
   const [admin, setAdmin] = useState(false);
@@ -81,6 +82,8 @@ const AdminPage = () => {
         }
       })
       .catch((err) => console.error(err.data));
+
+    axios.get(`${process.env.REACT_APP_API_URL}/api/auto/road`);
   }, []);
 
   const onClickConsole = (data) => {
@@ -111,8 +114,138 @@ const AdminPage = () => {
     e.preventDefault();
     await axios
       .get(`${process.env.REACT_APP_API_URL}/api/admin/msg-log`)
-      .then((res) => console.log(res.data.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        if (res.data) {
+          console.log(decrypt(res.data, ""));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          // err.response가 존재하면 서버 응답에 대한 오류
+          console.log(err.response.data);
+
+          // 상태 코드별로 다른 에러 처리
+          alert(err.response.data); // 인증 오류
+        }
+      });
+  };
+
+  const [studentId, setStudentId] = useState("");
+  const [studentName, setStudentName] = useState("");
+  const [studentPn, setStudentPn] = useState("");
+
+  const [deleteId, setDeleteId] = useState("");
+
+  const studentIdFunc = (text) => {
+    setStudentId(text);
+  };
+  const studentNameFunc = (text) => {
+    setStudentName(text);
+  };
+  const studentPnFunc = (text) => {
+    setStudentPn(text);
+  };
+
+  const deleteIdFunc = (text) => {
+    setDeleteId(text);
+  };
+
+  const userFind = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/api/admin/user-find/${studentId}`)
+      .then((res) => {
+        if (res.data) {
+          alert("콘솔을 확인하세요");
+          console.log(decrypt(res.data, studentId));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          // err.response가 존재하면 서버 응답에 대한 오류
+          console.log(err.response.data);
+
+          // 상태 코드별로 다른 에러 처리
+          alert(err.response.data); // 인증 오류
+        }
+      });
+  };
+
+  const userUpdata_pn = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      student_id: studentId,
+      student_PN: encrypt(studentPn, studentId),
+    };
+
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/api/admin/user-updata/pn`, data)
+      .then((res) => {
+        if (res.data) {
+          alert("콘솔을 확인하세요");
+          console.log(decrypt(res.data, studentId));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          // err.response가 존재하면 서버 응답에 대한 오류
+          console.log(err.response.data);
+
+          // 상태 코드별로 다른 에러 처리
+          alert(err.response.data); // 인증 오류
+        }
+      });
+  };
+
+  const userUpdata_name = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      student_id: studentId,
+      student_name: encrypt(studentName, studentId),
+    };
+
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/api/admin/user-updata/name`, data)
+      .then((res) => {
+        if (res.data) {
+          alert("콘솔을 확인하세요");
+          console.log(decrypt(res.data, studentId));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          // err.response가 존재하면 서버 응답에 대한 오류
+          console.log(err.response.data);
+
+          // 상태 코드별로 다른 에러 처리
+          alert(err.response.data); // 인증 오류
+        }
+      });
+  };
+
+  const deleteFunc = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(`${process.env.REACT_APP_API_URL}/api/admin/user-delete`, { deleteId: deleteId })
+      .then((res) => {
+        if (res.data) {
+          alert("콘솔을 확인하세요");
+          console.log(decrypt(res.data, deleteId));
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          // err.response가 존재하면 서버 응답에 대한 오류
+          console.log(err.response.data);
+
+          // 상태 코드별로 다른 에러 처리
+          alert(err.response.data); // 인증 오류
+        }
+      });
   };
 
   return (
@@ -213,6 +346,40 @@ const AdminPage = () => {
                 <p>행사공지</p>
                 <p>
                   {notice_event.value} <span onClick={() => onClickConsole(notice_event)}>(콘솔)</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>유저 정보</p>
+              </div>
+              <div>
+                <InputComp changeFunc={studentIdFunc}>유저 학번</InputComp>
+                <p>
+                  <span onClick={userFind}>정보조회</span>
+                </p>
+              </div>
+              <div>
+                <InputComp changeFunc={studentNameFunc}>수정될 이름</InputComp>
+                <p>
+                  <span onClick={userUpdata_name}>수정</span>
+                </p>
+              </div>
+              <div>
+                <InputComp changeFunc={studentPnFunc}>수정될 번호</InputComp>
+                <p>
+                  <span onClick={userUpdata_pn}>수정</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>유저 삭제</p>
+              </div>
+              <div>
+                <InputComp changeFunc={deleteIdFunc}>삭제될 학번</InputComp>
+                <p>
+                  <span onClick={deleteFunc}>삭제</span>
                 </p>
               </div>
             </div>
