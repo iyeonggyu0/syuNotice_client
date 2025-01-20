@@ -59,14 +59,14 @@ const ApplyPage5 = () => {
 
   const keyword_4 = localStorage.getItem("4-keyword") || "false";
 
-  console.log(typeof class_1, typeof record_1, typeof registration_1, typeof chapel_1, typeof receive_2, typeof receive_3, typeof keyword_4);
-
   const [studentId, setStudentId] = useState("");
   const [studentName, setStudentNam] = useState("");
   const [pn, setPn] = useState("");
   const [pw, setPw] = useState("");
 
   const [pnChange, setPnChange] = useState(true);
+
+  const [agreement, setAgreement] = useState(false);
 
   // 전체 비어있음 체크
   useEffect(() => {
@@ -154,7 +154,11 @@ const ApplyPage5 = () => {
     }
 
     if (/[^0-9]/g.test(pw)) {
-      return alert("인증번호는 숫자만 입력 가능합니다");
+      return alert("인증번호는 숫자만 입력 가능합니다.");
+    }
+
+    if (!agreement) {
+      return alert("약관 동의가 필요합니다.");
     }
 
     const postData = {
@@ -209,8 +213,6 @@ const ApplyPage5 = () => {
         }
       });
   };
-
-  const [agreement, setAgreement] = useState(false);
 
   const handleCheckboxChange = () => {
     setAgreement((prevAgreement) => !prevAgreement);

@@ -74,6 +74,19 @@ const AdminPage = () => {
       })
       .catch((err) => console.error(err.data));
 
+    axios.get(`${process.env.REACT_APP_API_URL}/api/admin/log-create`).then((res) => {
+      if (res.status === 200) {
+        setUserCreateData({ value: res.data.findData_create.value, console: res.data.findData_create.console });
+        setUserDeleteData({ value: res.data.findData_delete.value, console: res.data.findData_delete.console });
+      }
+    });
+
+    axios.get(`${process.env.REACT_APP_API_URL}/api/admin/log-find`).then((res) => {
+      if (res.status === 200) {
+        setLogData({ console: res.data });
+      }
+    });
+
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/admin/usertag-num`)
       .then((res) => {
@@ -82,8 +95,6 @@ const AdminPage = () => {
         }
       })
       .catch((err) => console.error(err.data));
-
-    axios.get(`${process.env.REACT_APP_API_URL}/api/auto/road`);
   }, []);
 
   const onClickConsole = (data) => {
@@ -106,9 +117,15 @@ const AdminPage = () => {
   const [notice_3, setNotice_3] = useState({ value: 0, console: {} });
   const [notice_4, setNotice_4] = useState({ value: 0, console: {} });
 
+  const [userCreateData, setUserCreateData] = useState({ value: 0, console: {} });
+  const [userDeleteData, setUserDeleteData] = useState({ value: 0, console: {} });
+
+  const [logData, setLogData] = useState({ console: {} });
+
   const [notice_scholarship, set_notice_scholarship] = useState({ value: 0, console: {} });
   const [notice_event, set_notice_event] = useState({ value: 0, console: {} });
 
+  console.log(logData);
   // 메시지 발송로그
   const onClickMsgLog = async (e) => {
     e.preventDefault();
@@ -257,9 +274,21 @@ const AdminPage = () => {
             <h1>ADMIN</h1>
             <div>
               <div>
-                <p>가입자 수</p>
+                <p>현재 가입자 수</p>
                 <p>
                   {userNum.value} 명 <span onClick={() => onClickConsole(userNum)}>(콘솔)</span>
+                </p>
+              </div>
+              <div>
+                <p>가입자 수</p>
+                <p>
+                  {userCreateData.value} 명 <span onClick={() => onClickConsole(userCreateData)}>(콘솔)</span>
+                </p>
+              </div>
+              <div>
+                <p>탈퇴자 수</p>
+                <p>
+                  {userDeleteData.value} 명 <span onClick={() => onClickConsole(userDeleteData)}>(콘솔)</span>
                 </p>
               </div>
             </div>
@@ -380,6 +409,14 @@ const AdminPage = () => {
                 <InputComp changeFunc={deleteIdFunc}>삭제될 학번</InputComp>
                 <p>
                   <span onClick={deleteFunc}>삭제</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p>로그 조회</p>
+                <p>
+                  <span onClick={() => onClickConsole(logData)}>(콘솔)</span>
                 </p>
               </div>
             </div>

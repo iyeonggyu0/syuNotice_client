@@ -58,6 +58,11 @@ const ApplyPage4 = () => {
   const nextButton = (e) => {
     e.preventDefault();
 
+    // 문자열에 해당 패턴이 존재하는 경우 리턴
+    if (/\s\/\s/.test(keyword)) {
+      return alert("구분자(/) 앞뒤로 띄어쓰기가 존재합니다.");
+    }
+
     if (keyword.replace(/\s+/g, "").length === 0) {
       if (window.confirm("키워드 알림을 받지 않습니다.")) {
         localStorage.setItem("4-keyword", keyword.replace(/\s+/g, ""));
@@ -81,7 +86,7 @@ const ApplyPage4 = () => {
             설정합니다.
           </p>
           <p>
-            단어가 포함된 공지에 대한 알림을 받아요
+            단어가 포함된 모든 공지에 대한 알림을 받아요
             <br />
             '/'로 키워드를 구분 하며, 앞 뒤로 띄어쓰기 금지
           </p>

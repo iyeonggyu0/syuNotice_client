@@ -15,6 +15,7 @@ import ApplyPage6 from "./pages/Apply/ApplyPage_6.js";
 import AdminLoginPage from "./pages/Admin/login.js";
 import KaKaoPage from "./pages/KaKao.js";
 import AgreementPage from "./pages/AgreementPage.js";
+import Error200 from "./pages/Error200.js";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
 
+          <Route path="/200" element={<Error200 />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>

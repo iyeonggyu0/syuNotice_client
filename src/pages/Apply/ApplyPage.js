@@ -2,6 +2,8 @@ import styled from "styled-components";
 import MainLayOut from "../../layout";
 import NextComp from "../../components/_common/NextComp";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const ApplyPageMainStyle = styled.section`
   width: 100vw;
@@ -38,6 +40,17 @@ const ApplyPageMainStyle = styled.section`
 
 const ApplyPage = () => {
   const nav = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/user/user-num`)
+      .then((res) => {})
+      .catch((err) => {
+        if (err.status === 400) {
+          nav("/200");
+        }
+      });
+  }, []);
 
   return (
     <MainLayOut>
