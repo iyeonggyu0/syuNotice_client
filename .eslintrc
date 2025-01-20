@@ -1,6 +1,0 @@
-{
-  "extends": ["react-app", "react-app/jest"],
-  "rules": {
-    "react-hooks/exhaustive-deps": "off" // 해당 규칙을 비활성화
-  }
-}
