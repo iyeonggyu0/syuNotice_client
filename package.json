@@ -24,7 +24,7 @@
     "react-loading": "^2.0.3",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "shortid": "^2.2.16",
     "styled-components": "^6.1.14",
     "styled-reset": "^4.5.2"
@@ -58,5 +58,11 @@
     "@craco/craco": "^7.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }
