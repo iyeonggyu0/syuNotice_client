@@ -1,11 +1,12 @@
 module.exports = {
+  presets: ["@babel/preset-env", "@babel/preset-react"],
   plugins: [
     [
       "module-resolver",
       {
         root: ["./src"],
         alias: {
-          "react-router-dom": "./node_modules/react-router-dom",
+          "@": "./src",
         },
       },
     ],
