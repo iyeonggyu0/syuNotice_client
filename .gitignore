@@ -1,4 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+*/.env
+.env
+
+*/node_modules
 
 # dependencies
 /node_modules
@@ -18,6 +21,24 @@
 .env.test.local
 .env.production.local
 
+client/.env
+client/.DS_Store
+client/.env.local
+client/.env.development
+client/.env.development.local
+client/.env.test.local
+client/.env.production
+client/.env.production.local
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+client/.env
+.env
+build
+*/.env
+
+/2024101224_syuNoticeClient.pem
+2024101224_syuNoticeClient.pem
+*/2024101224_syuNoticeClient.pem

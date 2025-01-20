@@ -1,12 +1,33 @@
 {
-  "name": "my-app",
+  "name": "syuNotice_client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.7.9",
+    "buffer": "^6.0.3",
     "cra-template": "1.2.0",
+    "craco-alias": "^3.0.1",
+    "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1"
+    "react-loading": "^2.0.3",
+    "react-responsive": "^10.0.0",
+    "react-router-dom": "^7.1.1",
+    "react-scripts": "5.0.1",
+    "shortid": "^2.2.16",
+    "styled-components": "^6.1.14",
+    "styled-reset": "^4.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,5 +52,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@craco/craco": "^7.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.1.0"
   }
 }

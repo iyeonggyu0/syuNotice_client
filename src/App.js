@@ -1,24 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import ScrollToTop from "./hooks/scrollToTop";
+import ApplyPage from "./pages/Apply/ApplyPage.js";
+import ApplyPage1 from "./pages/Apply/ApplyPage_1.js";
+import ApplyPage2 from "./pages/Apply/ApplyPage_2.js";
+import ApplyPage3 from "./pages/Apply/ApplyPage_3.js";
+import ApplyPage4 from "./pages/Apply/ApplyPage_4.js";
+import ApplyPage5 from "./pages/Apply/ApplyPage_5.js";
+import MainPage from "./pages/MainPage";
+import GlobalStyle from "./style/globalStyle";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RefusalPage from "./pages/Refusal.js";
+import AdminPage from "./pages/Admin/index.js";
+import Error404 from "./pages/ErrorPage.js";
+import ApplyPage6 from "./pages/Apply/ApplyPage_6.js";
+import AdminLoginPage from "./pages/Admin/login.js";
+import KaKaoPage from "./pages/KaKao.js";
+import AgreementPage from "./pages/AgreementPage.js";
+import Error200 from "./pages/Error200.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalStyle />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route>
+          {/* 환영인사 */}
+          <Route path="/apply/0" element={<ApplyPage />} />
+          {/* 학사공지 */}
+          <Route path="/apply/1" element={<ApplyPage1 />} />
+          {/* 장학공지 */}
+          <Route path="/apply/2" element={<ApplyPage2 />} />
+          {/* 행사사공지 */}
+          <Route path="/apply/3" element={<ApplyPage3 />} />
+          {/* 개인키워드 설정 */}
+          <Route path="/apply/4" element={<ApplyPage4 />} />
+          {/* 사용자 정보 입력 */}
+          <Route path="/apply/5" element={<ApplyPage5 />} />
+          {/* 사용자 정보 입력 */}
+          <Route path="/apply/6" element={<ApplyPage6 />} />
+
+          {/* 삭제 */}
+          <Route path="/d" element={<RefusalPage />} />
+
+          {/* 문의 */}
+          <Route path="/kakao" element={<KaKaoPage />} />
+
+          {/* 약관관 */}
+          <Route path="/agreement" element={<AgreementPage />} />
+
+          {/* 어드민 */}
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+
+          <Route path="/200" element={<Error200 />} />
+          <Route path="*" element={<Error404 />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
