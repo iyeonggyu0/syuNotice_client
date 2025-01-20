@@ -23,7 +23,6 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          Remove-Item -Recurse -Force node_modules
           npm ci
           npm list react-router-dom
           npm run build --if-present
