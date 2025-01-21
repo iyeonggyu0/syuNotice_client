@@ -51,7 +51,7 @@ const MainPage = () => {
 
   return (
     <MainLayOut>
-      <MainPageMainPc isPc={`${isPc}`} bgImage={bgImage} className="flexWidthCenter">
+      <MainPageMainPc isPc={isPc} bgImage={bgImage} className="flexWidthCenter">
         <div className="title">{/* 로고 */}</div>
         <p onClick={() => nav("/apply/0")} className="emoji">
           내 번호로 알림받기

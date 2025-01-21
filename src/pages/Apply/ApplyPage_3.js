@@ -17,7 +17,7 @@ const ApplyPageMainStyle = styled.section`
 
   & > div > p:first-child {
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     user-select: none;
     text-align: center;
     line-height: 150%;

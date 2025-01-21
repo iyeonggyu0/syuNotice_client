@@ -39,7 +39,7 @@ const KaKaoPage = () => {
 
   return (
     <MainLayOut>
-      <KakaoMainStyle isPc={`${isPc}`} className="flexCenter">
+      <KakaoMainStyle isPc={isPc} className="flexCenter">
         <div className="title">{/* 로고 */}</div>
         <a href="http://pf.kakao.com/_zgfjn/chat" target="_blank" rel="noopener noreferrer">
           <div className="img"></div> 문의하러 바로 가기 {">"}

@@ -20,7 +20,7 @@ const RefusalPageMainStyle = styled.section`
   & > div > p:first-child {
     user-select: none;
     font-weight: 400;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     text-align: center;
     line-height: 150%;
     margin-bottom: 1vh;

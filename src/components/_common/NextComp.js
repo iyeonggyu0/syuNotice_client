@@ -3,12 +3,12 @@ import { useMedia } from "../../hooks/useMedia";
 
 export const NextCompMainStyle = styled.div`
   width: 70vw;
-  height: ${(props) => (props.isPc ? "55px" : "50px")};
+  height: ${(props) => (props.isPc ? "55px" : "48px")};
   max-width: 300px;
   background-color: #474a50;
   color: white;
   font-size: 1.1rem;
-  border-radius: 16px;
+  border-radius: ${(props) => (props.isPc ? "16px" : "8px")};
   cursor: pointer;
   user-select: none;
   transition: all 0.2s;
@@ -21,7 +21,7 @@ export const NextCompMainStyle = styled.div`
 const NextComp = ({ children }) => {
   const isPc = useMedia().isPc;
   return (
-    <NextCompMainStyle isPc={`${isPc}`} className="flexCenter">
+    <NextCompMainStyle isPc={isPc} className="flexCenter">
       {children}
     </NextCompMainStyle>
   );

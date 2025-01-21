@@ -23,7 +23,7 @@ export const Error404MainStyle = styled.section`
   & > div > p {
     font-weight: 400;
     user-select: none;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     text-align: center;
     line-height: 150%;
     margin-top: 2vh;

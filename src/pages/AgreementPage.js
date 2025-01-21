@@ -9,7 +9,7 @@ export const AgreementPageMainStyle = styled.section`
   padding: 200px;
 
   & > p:nth-child(1) {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 12px;
   }
 

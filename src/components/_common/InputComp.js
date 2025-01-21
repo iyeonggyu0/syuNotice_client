@@ -7,7 +7,7 @@ const InputCompStyled = styled.div`
 
   & > input {
     width: 70vw;
-    height: ${(props) => (props.isPc ? "55px" : "50px")};
+    height: ${(props) => (props.isPc ? "55px" : "48px")};
     max-width: 300px;
     border-radius: 16px;
     cursor: text;
@@ -43,7 +43,7 @@ const InputCompStyled = styled.div`
 const InputComp = ({ children, changeFunc, clickSituation = true, certification = null, example = "", password = null }) => {
   const isPc = useMedia().isPc;
   return (
-    <InputCompStyled isPc={`${isPc}`}>
+    <InputCompStyled isPc={isPc}>
       <p>{children}</p>
       <input
         disabled={!clickSituation}

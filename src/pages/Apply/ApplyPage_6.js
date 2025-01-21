@@ -28,7 +28,7 @@ const ApplyPageMainStyle = styled.section`
   & > div > p:nth-child(2) {
     font-weight: 400;
     user-select: none;
-    font-size: 2rem;
+    font-size: 1.75rem;
     text-align: center;
     line-height: 150%;
     margin-top: 3vh;

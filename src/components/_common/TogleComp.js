@@ -3,7 +3,7 @@ import { useMedia } from "../../hooks/useMedia";
 
 const ToggleCompStyl = styled.div`
   width: 70vw;
-  height: ${(props) => (props.isPc ? "55px" : "50px")};
+  height: ${(props) => (props.isPc ? "55px" : "48px")};
   max-width: 300px;
   border-radius: 16px;
   cursor: pointer;
@@ -21,7 +21,7 @@ const ToggleCompStyl = styled.div`
 const ToggleComp = ({ children, toggle }) => {
   const isPc = useMedia().isPc;
   return (
-    <ToggleCompStyl isPc={`${isPc}`} toggle={`${toggle}`} className="flexHeightCenter">
+    <ToggleCompStyl isPc={isPc} toggle={`${toggle}`} className="flexHeightCenter">
       <span>{children}</span>
     </ToggleCompStyl>
   );
