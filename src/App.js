@@ -1,3 +1,4 @@
+import React from "react";
 import ScrollToTop from "./hooks/scrollToTop";
 import ApplyPage from "./pages/Apply/ApplyPage.js";
 import ApplyPage1 from "./pages/Apply/ApplyPage_1.js";
@@ -21,7 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route>

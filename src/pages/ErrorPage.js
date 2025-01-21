@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MainLayOut from "../layout";
 import NextComp from "../components/_common/NextComp";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export const Error404MainStyle = styled.section`
   width: 100vw;

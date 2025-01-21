@@ -1,3 +1,4 @@
+import React from "react";
 import LayOutHeader from "./header";
 
 const MainLayOut = ({ children }) => {

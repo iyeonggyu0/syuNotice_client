@@ -1,6 +1,8 @@
+import React from "react";
+
 import styled from "styled-components";
 import { useMedia } from "../hooks/useMedia";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import MainLayOut from "../layout";
 
 const MainPageMainPc = styled.section`

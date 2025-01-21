@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MainLayOut from "../../layout/index.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 import NextComp from "../../components/_common/NextComp.js";
 import InputComp from "../../components/_common/InputComp.js";

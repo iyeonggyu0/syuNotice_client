@@ -5,7 +5,7 @@ import InputComp from "../../components/_common/InputComp.js";
 import axios from "axios";
 import { encrypt } from "../../util/crypto.js";
 import NextComp from "../../components/_common/NextComp.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const ApplyPageMainStyle = styled.section`
   width: 100vw;
