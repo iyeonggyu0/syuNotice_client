@@ -16,13 +16,11 @@ import AdminLoginPage from "./pages/Admin/login.js";
 import KaKaoPage from "./pages/KaKao.js";
 import AgreementPage from "./pages/AgreementPage.js";
 import Error200 from "./pages/Error200.js";
-import ScrollToTop from "./hooks/scrollToTop.js";
 
 const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route>
