@@ -1,5 +1,4 @@
 import React from "react";
-import ScrollToTop from "./hooks/scrollToTop";
 import ApplyPage from "./pages/Apply/ApplyPage.js";
 import ApplyPage1 from "./pages/Apply/ApplyPage_1.js";
 import ApplyPage2 from "./pages/Apply/ApplyPage_2.js";
@@ -17,12 +16,13 @@ import AdminLoginPage from "./pages/Admin/login.js";
 import KaKaoPage from "./pages/KaKao.js";
 import AgreementPage from "./pages/AgreementPage.js";
 import Error200 from "./pages/Error200.js";
+import ScrollToTop from "./hooks/scrollToTop.js";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route>
@@ -60,6 +60,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
