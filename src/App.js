@@ -7,7 +7,7 @@ import ApplyPage4 from "./pages/Apply/ApplyPage_4.js";
 import ApplyPage5 from "./pages/Apply/ApplyPage_5.js";
 import MainPage from "./pages/MainPage";
 import GlobalStyle from "./style/globalStyle";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import RefusalPage from "./pages/Refusal.js";
 import AdminPage from "./pages/Admin/index.js";
 import Error404 from "./pages/ErrorPage.js";
@@ -19,7 +19,7 @@ import Error200 from "./pages/Error200.js";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -56,7 +56,7 @@ const App = () => {
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
