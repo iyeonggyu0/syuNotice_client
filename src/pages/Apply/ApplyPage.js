@@ -15,7 +15,7 @@ const ApplyPageMainStyle = styled.section`
     max-width: 165px;
     max-height: 165px;
 
-    background-image: url("/img/icon/hello.webp");
+    background-image: url("/img/icon/hello.png");
     background-repeat: no-repeat;
     background-size: contain;
     user-select: none;

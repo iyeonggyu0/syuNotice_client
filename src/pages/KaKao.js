@@ -13,7 +13,7 @@ export const KakaoMainStyle = styled.section`
   & .title {
     width: 80vw;
     height: 180px;
-    background-image: url("/img/bg/title_kakao.webp");
+    background-image: url("/img/bg/title_kakao.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

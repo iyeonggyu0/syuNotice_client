@@ -14,7 +14,7 @@ export const Error404MainStyle = styled.section`
     max-width: 165px;
     max-height: 165px;
 
-    background-image: url("/img/icon/200.webp");
+    background-image: url("/img/icon/200.png");
     background-repeat: no-repeat;
     background-size: contain;
     user-select: none;
