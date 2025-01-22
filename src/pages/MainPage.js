@@ -18,7 +18,7 @@ const MainPageMainPc = styled.section`
   & > .title {
     width: 80vw;
     height: 180px;
-    background-image: url("/img/bg/title.png");
+    background-image: url("/img/bg/title.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -46,7 +46,7 @@ const MainPageMainPc = styled.section`
 
 const MainPage = () => {
   const isPc = useMedia().isPc;
-  const bgImage = isPc ? "/img/bg/PCBG.png" : "/img/bg/MobileBG.png";
+  const bgImage = isPc ? "/img/bg/PCBG.webp" : "/img/bg/MobileBG.webp";
   const nav = useNavigate();
 
   return (
