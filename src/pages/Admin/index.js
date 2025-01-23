@@ -42,7 +42,7 @@ const AdminPage = () => {
           setUserNum({ value: res.data.value, console: res.data.console });
         }
       })
-      .catch((err) => console.error(err.data));
+      .catch((err) => console.error(err.response.data));
 
     // 남은 문자 수 / 이용단가
     axios
@@ -53,7 +53,7 @@ const AdminPage = () => {
           setMsgPrice({ value: res.data.value2, console: {} });
         }
       })
-      .catch((err) => console.error(err.data));
+      .catch((err) => console.error(err.response.data));
 
     // 저장된 전체 공지 / 이번주 공지
     axios
@@ -72,7 +72,7 @@ const AdminPage = () => {
           set_notice_event({ value: res.data.weekNoticeList_event.value, console: res.data.weekNoticeList_event.console });
         }
       })
-      .catch((err) => console.error(err.data));
+      .catch((err) => console.error(err.response.data));
 
     axios.get(`${process.env.REACT_APP_API_URL}/api/admin/log-create`).then((res) => {
       if (res.status === 200) {
@@ -94,7 +94,7 @@ const AdminPage = () => {
           setKeyWordNum({ value: res.data.value, console: res.data.console });
         }
       })
-      .catch((err) => console.error(err.data));
+      .catch((err) => console.error(err.response.data));
   }, []);
 
   const onClickConsole = (data) => {

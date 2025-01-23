@@ -96,8 +96,8 @@ const RefusalPage = () => {
           }
         })
         .catch((err) => {
-          if (err.data) {
-            alert(err.data);
+          if (err.response.data) {
+            alert(err.response.data);
             console.error(err);
           }
         });
