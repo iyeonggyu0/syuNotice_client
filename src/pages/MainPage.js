@@ -9,7 +9,7 @@ import axios from "axios";
 const MainPageMainPc = styled.section`
   width: 100vw;
   height: 100vh;
-  background-position: center;
+  background-position: ${(props) => (props.isPc ? "center" : "center bottom")};
   background-repeat: no-repeat;
   position: fixed;
   background-size: cover;
@@ -32,7 +32,7 @@ const MainPageMainPc = styled.section`
     bottom: ${(props) => (props.isPc ? "10vh" : "15vh")};
     cursor: pointer;
     font-size: 1.2rem;
-    padding: 10px;
+    padding: 8px;
     border-bottom: 1px solid #474a50;
     font-weight: 500;
     transition: all 0.3s;
@@ -59,7 +59,7 @@ const MainPage = () => {
       <MainPageMainPc isPc={isPc} bgImage={bgImage} className="flexWidthCenter">
         <div className="title">{/* 로고 */}</div>
         <p onClick={() => nav("/apply/0")} className="emoji">
-          내 번호로 알림받기
+          내 번호로 알림 받기
         </p>
       </MainPageMainPc>
     </MainLayOut>

@@ -6,7 +6,7 @@ export const AgreementPageMainStyle = styled.section`
   max-width: 1080px;
   margin: 0 auto;
 
-  padding: 200px;
+  padding: 15vh 10%;
 
   & > p:nth-child(1) {
     font-size: 1.75rem;
@@ -110,6 +110,8 @@ const AgreementPage = () => {
             <br />
             - 실 사용자 정보와 일치하지 않는 정보를 기재한 경우
             <br />
+            - 가입을 거짓 정보로 진행한 경우
+            <br />
             2. <b>분쟁 해결</b>
             <br />본 서비스와 관련한 분쟁 발생 시, 서울 법원을 관할 법원으로 지정합니다.
           </p>
@@ -132,9 +134,13 @@ const AgreementPage = () => {
           <p>
             <b>부칙</b>
             <br />
-            1. 이 약관은 2025년 1월 18일부터 시행됩니다.
+            1. 이 약관은 2025년 1월 25일부터 시행됩니다.
             <br />
-            2. 약관 변경 시 사전 공지 후 적용됩니다.
+            2. 약관 변경 시 사전 공지 없이 변경될 수 있습니다.
+            <br />
+            3. 학교 홈페이지에 올라오는 공지를 메시지로 전달하는 서비스입니다.
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이에 따라 발송되는 문자는 마케팅용 목적이 아닌 사용자 동의를 통해 발신되는 서비스 형식의 문자입니다.
           </p>
         </div>
       </AgreementPageMainStyle>

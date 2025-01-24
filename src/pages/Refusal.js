@@ -111,6 +111,10 @@ const RefusalPage = () => {
       return alert("학번을 확인해 주세요");
     }
 
+    if (/^20/.test(studentId)) {
+      return alert("학번을 확인해 주세요");
+    }
+
     if (/[^0-9]/g.test(studentId)) {
       return alert("학번은 숫자만 입력해 주세요");
     }

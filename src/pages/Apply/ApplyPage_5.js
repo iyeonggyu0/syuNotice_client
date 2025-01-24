@@ -145,6 +145,10 @@ const ApplyPage5 = () => {
       return alert("학번을 확인해 주세요");
     }
 
+    if (/^20/.test(studentId)) {
+      return alert("학번을 확인해 주세요");
+    }
+
     if (/[^0-9]/g.test(studentId)) {
       return alert("학번은 숫자만 입력해 주세요");
     }
@@ -234,11 +238,11 @@ const ApplyPage5 = () => {
             </InputComp>
             <InputComp changeFunc={studentPwFunc}>인증번호</InputComp>
             <div className="flexHeightCenter">
-              <label>
+              <label className="flexHeightCenter">
                 <input type="checkbox" checked={agreement} onChange={handleCheckboxChange} style={{ cursor: "pointer" }} />
                 <span style={{ marginLeft: "10px", cursor: "pointer", fontSize: "0.9rem", color: "#222222" }}>약관에 동의합니다.</span>
                 <a
-                  href="/agreement"
+                  href="/#/agreement"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ marginLeft: "6px", cursor: "pointer", fontSize: "0.8rem", color: "darkgray" }}>
