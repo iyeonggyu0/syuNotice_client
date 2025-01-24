@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styled from "styled-components";
 import { useMedia } from "../hooks/useMedia";
 import { useNavigate } from "react-router";
 import MainLayOut from "../layout";
+import axios from "axios";
 
 const MainPageMainPc = styled.section`
   width: 100vw;
@@ -48,6 +49,10 @@ const MainPage = () => {
   const isPc = useMedia().isPc;
   const bgImage = isPc ? "/img/bg/PCBG.png" : "/img/bg/MobileBG.png";
   const nav = useNavigate();
+
+  useEffect(async () => {
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/log/create`);
+  });
 
   return (
     <MainLayOut>
