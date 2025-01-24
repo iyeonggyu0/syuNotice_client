@@ -50,8 +50,8 @@ const MainPage = () => {
   const bgImage = isPc ? "/img/bg/PCBG.png" : "/img/bg/MobileBG.png";
   const nav = useNavigate();
 
-  useEffect(async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/api/log/create`);
+  useEffect(() => {
+    axios.post(`${process.env.REACT_APP_API_URL}/api/log/create`);
   });
 
   return (
