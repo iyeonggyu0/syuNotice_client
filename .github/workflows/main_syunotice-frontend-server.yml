@@ -1,3 +1,4 @@
+# GitHub Actions Workflow
 name: Build and deploy Node.js app to Azure Web App - syunotice-frontend-server
 
 on:
@@ -38,12 +39,12 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      # Step 5: Upload build folder as artifact
+      # Step 5: Upload the build folder
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: build-folder
-          path: build/ # Only upload the build folder
+          path: build/ # Upload build folder as artifact
 
   deploy:
     runs-on: ubuntu-latest
@@ -63,15 +64,15 @@ jobs:
 
       # Step 2: Debug downloaded files
       - name: Debug downloaded files
-        run: ls -R # Print the directory structure for debugging
+        run: ls -R # Verify the directory structure for debugging
 
       # Step 3: Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_317DCE6E11EC400EAE1D7E4BEFB515C7 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E59489BE31BC47DB9D439200E2661BE4 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9358F626040144239C33C5E2868CDDC3 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       # Step 4: Deploy the build folder to Azure Web App
       - name: "Deploy to Azure Web App"
@@ -80,4 +81,4 @@ jobs:
         with:
           app-name: "syunotice-frontend-server"
           slot-name: "Production"
-          package: ./build/ # Deploy only the build folder
+          package: ./build/ # Make sure the build folder is used here
