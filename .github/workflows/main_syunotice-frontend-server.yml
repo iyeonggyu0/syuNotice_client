@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-folder
-          path: build/ # Only upload the build folder
+          path: ./build/ # Only upload the build folder
 
   deploy:
     runs-on: ubuntu-latest
