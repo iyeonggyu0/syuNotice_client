@@ -31,7 +31,7 @@ jobs:
           echo REACT_APP_CRYPTO_KEY=${{ secrets.REACT_APP_CRYPTO_KEY }} >> .env
           echo NODE_ENV=production >> .env
 
-      # Step 4: Install dependencies, build, and test
+      # Step 4: Install dependencies and build
       - name: npm install, build, and test
         run: |
           npm install
@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-folder
-          path: ./build/ # Only upload the build folder
+          path: build/ # Only upload the build folder
 
   deploy:
     runs-on: ubuntu-latest
@@ -61,7 +61,11 @@ jobs:
         with:
           name: build-folder
 
-      # Step 2: Login to Azure
+      # Step 2: Debug downloaded files
+      - name: Debug downloaded files
+        run: ls -R # Print the directory structure for debugging
+
+      # Step 3: Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -69,7 +73,7 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E59489BE31BC47DB9D439200E2661BE4 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9358F626040144239C33C5E2868CDDC3 }}
 
-      # Step 3: Deploy only the build folder to Azure Web App
+      # Step 4: Deploy the build folder to Azure Web App
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
