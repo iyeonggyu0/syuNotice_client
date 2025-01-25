@@ -145,7 +145,7 @@ const ApplyPage5 = () => {
       return alert("학번을 확인해 주세요");
     }
 
-    if (/^20/.test(studentId)) {
+    if (!/^20/.test(studentId)) {
       return alert("학번을 확인해 주세요");
     }
 
