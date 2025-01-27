@@ -54,6 +54,9 @@ const Error200 = () => {
           <div onClick={() => nav("/")}>
             <NextComp>돌아가기</NextComp>
           </div>
+          <div style={{ marginTop: "20px" }} onClick={() => nav("/apply/0")}>
+            <NextComp>기존 정보 수정하기</NextComp>
+          </div>
         </div>
       </Error404MainStyle>
     </MainLayOut>
